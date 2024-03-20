@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import './view/screens/home_screen.dart';
 import 'package:cash_flow/view/screens/payment_screen.dart';
-
+import './view/screens/main_screen.dart';
+import './model/customer_model.dart';
+import './control/db_handler.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,8 +12,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-
 
   // This widget is the root of your application.
   @override
@@ -37,11 +37,35 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      // home: MainScreen(),
+
+      home: FutureBuilder(
+          future: DbHandler().readData("Customers"),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            }
+            if (snapshot.hasError) {
+              return const Scaffold(
+                body: Center(
+                  child: Text(
+                    "Error",
+                    style: TextStyle(fontSize: 100),
+                  ),
+                ),
+              );
+            }
+            else{
+              if(snapshot.data==null){
+                print("hello");
+              }
+              CustomerModel.setCurrentCustomer(snapshot.data!);
+              return MainScreen();
+            }
+          }),
     );
   }
 }
-

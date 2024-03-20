@@ -12,61 +12,89 @@ class DbHandler {
     }
 
     Directory directory = await getApplicationDocumentsDirectory();
-    String path = join(directory.path, 'CashFlowdb11.db');
+    String path = join(directory.path, 'CashFlowdb17.db');
 
-    _database=await openDatabase(
+    _database = await openDatabase(
       path,
       version: 1,
       onCreate: (db, version) async {
+
+        //customer table
         await db.execute('''
           CREATE TABLE Customers(
-            custId INTEGER PRIMARY KEY,
-            firstname VARCHAR(255) NOT NULL,
-            lastname VARCHAR(255) NOT NULL,
+            custId INTEGER PRIMARY KEY AUtOINCREMENT,
+            firstName VARCHAR(255) NOT NULL,
+            lastName VARCHAR(255) NOT NULL,
             address VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL UNIQUE,
             phoneNumber VARCHAR(11) NOT NULL UNIQUE,
             cnic VARCHAR(13) NOT NULL UNIQUE,
-            password TEXT 
+            password VARCHAR(255) 
           )
+''');
+
+//Account table
+ await db.execute('''
+          CREATE TABLE Account(
+            accountId VARCHAR(255) PRIMARY KEY,
+            balance INTEGER NOT NULL,
+            type VARCHAR(255) NOT NULL DEFAULT 'Saving' ,
+            custId INTEGER NOT NULL,
+            FOREIGN KEY(custId) REFERENCES Customers(custId)
+          )
+''');
+
+//inserting data for testing purpose customer
+await db.execute('''
+  INSERT INTO Customers(
+    firstName,
+    lastName,
+    address,
+    email,
+    phoneNumber,
+    cnic,
+    password
+  ) VALUES ("Abdul Majeed","Faraz","Building 4c","faraz@gmail.com","03156247856","3287596145254","faraz123")
+''');
+
+//account
+
+  await db.execute('''
+  INSERT INTO Account(
+    accountId,
+    balance,
+    type,
+    custId
+  ) VALUES ("PKRCF00001",50000,"Saving",1)
 ''');
       },
     );
 
-
     return _database;
   }
 
-  insertData(
-      String table,
-      String firstName,
-      String lastName,
-      String address,
-      String email,
-      String number,
-      String cnic,
-      String password) async {
-    //getting database    
+  insertData(String table, String firstName, String lastName, String address,
+      String email, String number, String cnic, String password) async {
+    //getting database
     Database? db = await database;
 
     //converting values to map for insert function
-    final Map<String,dynamic> values={
-      "custId":1,
-      "firstName":firstName,
-      "lastName":lastName,
-      "address":address,
-      "email":email,
-      "phoneNumber":number,
-      "cnic":cnic,
-      "password":password
+    final Map<String, dynamic> values = {
+      // "custId": 1,
+      "firstName": firstName,
+      "lastName": lastName,
+      "address": address,
+      "email": email,
+      "phoneNumber": number,
+      "cnic": cnic,
+      "password": password
     };
 
     //inserting values
     db!.insert("Customers", values);
-
   }
 
-  readData(String table) async {
+  Future<List<Map<String, dynamic>>> readData(String table) async {
     Database? db = await database;
     final list = await db!.query(table);
     return list;

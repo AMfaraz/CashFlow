@@ -1,3 +1,5 @@
+import 'package:cash_flow/view/screens/bill_type_screen.dart';
+import 'package:cash_flow/view/screens/transaction_history_screen.dart';
 import 'package:flutter/material.dart';
 
 import './view/screens/home_screen.dart';
@@ -6,7 +8,7 @@ import './view/screens/main_screen.dart';
 import './model/customer_model.dart';
 import './control/db_handler.dart';
 import './view/screens/login_screen.dart';
-import './view/screens/Sign_in.dart';
+import 'view/screens/sign_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,16 +44,22 @@ class MyApp extends StatelessWidget {
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SigninScreen(),
+      home: LoginScreen(),
+      // home: MainScreen(),
 
 
       //running this after succesfull login signup
       // home: FutureBuilder(
+      //     //future to read data
       //     future: DbHandler().readData("Customers"),
       //     builder: (context, snapshot) {
+
+      //       //loading
       //       if (snapshot.connectionState == ConnectionState.waiting) {
       //         return const CircularProgressIndicator();
       //       }
+
+      //       //not found
       //       if (snapshot.hasError) {
       //         return const Scaffold(
       //           body: Center(
@@ -62,6 +70,8 @@ class MyApp extends StatelessWidget {
       //           ),
       //         );
       //       }
+
+      //       //after successful login
       //       else{
       //         CustomerModel.setCurrentCustomer(snapshot.data!);
       //         return MainScreen();

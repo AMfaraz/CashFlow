@@ -5,6 +5,7 @@ import '../utils/screen_utils.dart';
 import '../utils/text_theme.dart' as th;
 import '../../control/db_handler.dart';
 import '../../model/customer_model.dart';
+import '../../model/account_model.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -43,7 +44,7 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Balance 1000/ Rs",
+              "Balance ${AccountModel.currentAccount.balance} /RS",
               style: th.TextTheme.subHeading.copyWith(color: secondaryColor),
             ),
           ),

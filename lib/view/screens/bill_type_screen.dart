@@ -1,33 +1,26 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:cash_flow/view/utils/colors.dart';
-import '../utils/screen_utils.dart';
-import '../utils/screen_utils.dart';
+import '../utils/colors.dart';
 import '../widgets/payment_type.dart';
-import './bill_type_screen.dart';
 
-class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+class BillTypeScreen extends StatelessWidget {
+  const BillTypeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double height = ScreenUtils.height(context);
-    double width = ScreenUtils.width(context);
-
-    // return SafeArea(
-    //   child: Scaffold(
-    //     appBar: AppBar(
-    //       backgroundColor: secondaryColor,
-    //       title: Text("Home"),
-    //       actions: [
-    //         Container(
-    //             margin: const EdgeInsets.only(top: 10, right: 10),
-    //             child: const Icon(Icons.mobile_friendly))
-    //       ],
-    //     ),
-    //     body:
-
-    return Container(
+    return SafeArea(
+        child: Scaffold(
+      appBar: AppBar(
+          title: const Text("Transaction History"),
+          actions: [
+            Container(
+                margin: const EdgeInsets.only(top: 10, right: 10),
+                child: const Icon(Icons.home_outlined))
+          ],
+          backgroundColor: secondaryColor,
+        ),
+        body: Container(
       color: primaryColor,
       width: double.infinity,
       child: Column(
@@ -43,17 +36,11 @@ class PaymentScreen extends StatelessWidget {
               PaymentType(
                   imgSrc:
                       'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Bill \nPayment",
-                  func: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context){
-                          return BillTypeScreen();
-                        }));
-                  }),
+                  imgText: "Electricity \n Bill"),
               PaymentType(
                   imgSrc:
                       'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Mobile \nRecharge"),
+                  imgText: "Gas \nBill"),
             ],
           ),
 
@@ -64,17 +51,19 @@ class PaymentScreen extends StatelessWidget {
               PaymentType(
                   imgSrc:
                       'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Credit \nCard"),
+                  imgText: "Water \nBill"),
               PaymentType(
                   imgSrc:
                       'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Loan \nRepayment"),
+                  imgText: "Internet \Bill"),
             ],
           ),
         ],
       ),
       //   ),
       // ),
+    ),
+    ),
     );
   }
 }

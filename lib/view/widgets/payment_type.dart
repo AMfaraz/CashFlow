@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../utils/screen_utils.dart';
 import '../utils/colors.dart';
+import '../utils/text_theme.dart' as th;
 
 class PaymentType extends StatelessWidget {
 
   final String imgSrc;
   final String imgText;
+  void Function()? func=(){};
 
-  const PaymentType({super.key,required this.imgSrc,required this.imgText});
+  PaymentType({super.key,required this.imgSrc,required this.imgText,this.func});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class PaymentType extends StatelessWidget {
     final double width = ScreenUtils.width(context);
 
     return GestureDetector(
-      onTap: (){},
+      onTap: func,
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
@@ -33,7 +35,7 @@ class PaymentType extends StatelessWidget {
               fit: BoxFit.scaleDown,
               imgSrc,
             ),
-            Text(imgText,textAlign: TextAlign.center,)
+            Text(imgText,textAlign: TextAlign.center,style: th.TextTheme.subHeading.copyWith(color: primaryColor),)
           ],
         ),
       ),

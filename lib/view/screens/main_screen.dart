@@ -52,6 +52,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: primaryColor,
         appBar: AppBar(
           title: Text(_screenDetails[_pages[_selectedIndex]]![1]),
           actions: [

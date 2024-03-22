@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/transaction_history_screen.dart';
+
 class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,12 +24,16 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.input),
             title: Text('Welcome'),
-            onTap: () => {},
+            onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
             leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
-            onTap: () => {Navigator.of(context).pop()},
+            title: Text('Transaction History'),
+            onTap: () => {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return TransactionHistoryScreen();
+              }))
+            },
           ),
           ListTile(
             leading: Icon(Icons.settings),

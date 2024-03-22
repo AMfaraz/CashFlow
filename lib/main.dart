@@ -5,6 +5,8 @@ import 'package:cash_flow/view/screens/payment_screen.dart';
 import './view/screens/main_screen.dart';
 import './model/customer_model.dart';
 import './control/db_handler.dart';
+import './view/screens/login_screen.dart';
+import './view/screens/Sign_in.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,32 +42,31 @@ class MyApp extends StatelessWidget {
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // home: MainScreen(),
+      home: SigninScreen(),
 
-      home: FutureBuilder(
-          future: DbHandler().readData("Customers"),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            }
-            if (snapshot.hasError) {
-              return const Scaffold(
-                body: Center(
-                  child: Text(
-                    "Error",
-                    style: TextStyle(fontSize: 100),
-                  ),
-                ),
-              );
-            }
-            else{
-              if(snapshot.data==null){
-                print("hello");
-              }
-              CustomerModel.setCurrentCustomer(snapshot.data!);
-              return MainScreen();
-            }
-          }),
+
+      //running this after succesfull login signup
+      // home: FutureBuilder(
+      //     future: DbHandler().readData("Customers"),
+      //     builder: (context, snapshot) {
+      //       if (snapshot.connectionState == ConnectionState.waiting) {
+      //         return const CircularProgressIndicator();
+      //       }
+      //       if (snapshot.hasError) {
+      //         return const Scaffold(
+      //           body: Center(
+      //             child: Text(
+      //               "Error",
+      //               style: TextStyle(fontSize: 100),
+      //             ),
+      //           ),
+      //         );
+      //       }
+      //       else{
+      //         CustomerModel.setCurrentCustomer(snapshot.data!);
+      //         return MainScreen();
+      //       }
+      //     }),
     );
   }
 }

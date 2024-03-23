@@ -1,4 +1,6 @@
 import 'package:cash_flow/view/screens/bill_type_screen.dart';
+import 'package:cash_flow/view/screens/company_electricity_screen.dart';
+import 'package:cash_flow/view/screens/setting_screen.dart';
 import 'package:cash_flow/view/screens/transaction_history_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +11,7 @@ import './model/customer_model.dart';
 import './control/db_handler.dart';
 import './view/screens/login_screen.dart';
 import 'view/screens/sign_screen.dart';
+import './view/screens/my_account_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,7 +48,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: LoginScreen(),
-      // home: MainScreen(),
+      // home: CompanyScreen(),
 
 
       //running this after succesfull login signup

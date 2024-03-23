@@ -14,7 +14,7 @@ class TransactionHandler {
     required String accountId,
     required String recieverId,
     String? bank = "anbank",
-    String name = "randomName",
+    String? name = "randomName",
   }) async {
     //if not enough money
     if (AccountModel.currentAccount.balance < amount) {
@@ -30,7 +30,7 @@ class TransactionHandler {
         amount: amount,
         accountId: accountId,
         recieverId: recieverId,
-        name: name,
+        name: name!,
         bank: bank);
     AccountModel? recieverAccount;
     CustomerModel? reciever;

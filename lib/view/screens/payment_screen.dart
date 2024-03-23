@@ -5,6 +5,7 @@ import '../utils/screen_utils.dart';
 import '../utils/screen_utils.dart';
 import '../widgets/payment_type.dart';
 import './bill_type_screen.dart';
+import './mobile_recharge_screen.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
@@ -46,14 +47,21 @@ class PaymentScreen extends StatelessWidget {
                   imgText: "Bill \nPayment",
                   func: () {
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context){
-                          return BillTypeScreen();
-                        }));
+                        .push(MaterialPageRoute(builder: (context) {
+                      return BillTypeScreen();
+                    }));
                   }),
               PaymentType(
-                  imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Mobile \nRecharge"),
+                imgSrc:
+                    'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                imgText: "Mobile \nRecharge",
+                func: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return MobileRechargeScreen();
+                  }));
+                },
+              ),
             ],
           ),
 

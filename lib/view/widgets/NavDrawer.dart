@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../screens/transaction_history_screen.dart';
+import '../screens/my_account_screen.dart';
+import '../screens/setting_screen.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -23,8 +25,10 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.input),
-            title: Text('Welcome'),
-            onTap: () => {Navigator.of(context).pop()},
+            title: Text('My Account'),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return MyAccountScreen();
+              }))
           ),
           ListTile(
             leading: Icon(Icons.verified_user),
@@ -38,7 +42,9 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return SettingScreen();
+              }))},
           ),
           ListTile(
             leading: Icon(Icons.border_color),

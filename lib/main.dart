@@ -12,6 +12,7 @@ import './control/db_handler.dart';
 import './view/screens/login_screen.dart';
 import 'view/screens/sign_screen.dart';
 import './view/screens/my_account_screen.dart';
+import './view/screens/passwird_change_screen.dart';
 
 void main() {
   runApp(const MyApp());

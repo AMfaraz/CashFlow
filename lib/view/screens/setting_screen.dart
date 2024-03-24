@@ -1,11 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
 import '../widgets/payment_type.dart';
-import './company_electricity_screen.dart';
-import './company_gas_services.dart';
-import './company_water_screen.dart';
+import './passwird_change_screen.dart';
+import './loginid_change_screen.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -32,21 +30,45 @@ class SettingScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
+
+              //change email screen
               Container(
                 margin: EdgeInsets.all(15),
                 height: 190,
                 child: PaymentType(
-                    imgSrc:
-                        'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                    imgText: "Change Login Id"),
+                  imgSrc:
+                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                  imgText: "Change Login Id",
+                  func: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LoginIdChangeScreen();
+                        },
+                      ),
+                    );
+                  },
+                ),
               ),
+
+              //password change screen
               Container(
                 margin: EdgeInsets.all(15),
                 height: 190,
                 child: PaymentType(
-                    imgSrc:
-                        'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                    imgText: "Change Password"),
+                  imgSrc:
+                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                  imgText: "Change Password",
+                  func: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return PasswordChangeScreen();
+                        },
+                      ),
+                    );
+                  },
+                ),
               )
             ],
           ),

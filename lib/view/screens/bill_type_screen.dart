@@ -7,16 +7,15 @@ import './company_electricity_screen.dart';
 import './company_gas_services.dart';
 import './company_water_screen.dart';
 
-
 class BillTypeScreen extends StatelessWidget {
   const BillTypeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      appBar: AppBar(
-          title: const Text("Transaction History"),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Bill Payment"),
           actions: [
             Container(
                 margin: const EdgeInsets.only(top: 10, right: 10),
@@ -25,66 +24,66 @@ class BillTypeScreen extends StatelessWidget {
           backgroundColor: secondaryColor,
         ),
         body: Container(
-      color: primaryColor,
-      width: double.infinity,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Text("Image"),
-
-          //bill payment mobile recharge
-          Row(
+          color: primaryColor,
+          width: double.infinity,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              PaymentType(
-                  imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Electricity \n Bill",
-                  func: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context){
-                          return CompanyElectricityScreen();
-                        }));
-                  },),
-              PaymentType(
-                  imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Gas \nBill",
-                  func:  () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context){
-                          return CompanyGasScreen();
-                        }));
-                  },),
-            ],
-          ),
+              // Text("Image"),
 
-          //CreditCard Loan Repayment
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              PaymentType(
-                  imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Water \nBill",func: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context){
-                          return CompanyWaterScreen();
-                        }));
-                  },),
-              PaymentType(
-                  imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
-                  imgText: "Internet \Bill"),
+              //bill payment mobile recharge
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  PaymentType(
+                    imgSrc: 'assets/icons/electricity-bill.png',
+                    imgText: "Electricity \n Bill",
+                    func: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return CompanyElectricityScreen();
+                      }));
+                    },
+                  ),
+                  PaymentType(
+                    imgSrc: 'assets/icons/natural-gas.png',
+                    imgText: "Gas \nBill",
+                    func: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return CompanyGasScreen();
+                      }));
+                    },
+                  ),
+                ],
+              ),
+
+              //CreditCard Loan Repayment
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  PaymentType(
+                    imgSrc: 'assets/icons/drop.png',
+                    imgText: "Water \nBill",
+                    func: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return CompanyWaterScreen();
+                      }));
+                    },
+                  ),
+                  PaymentType(
+                      imgSrc: 'assets/icons/router.png',
+                      imgText: "Internet \nBill"),
+                ],
+              ),
             ],
           ),
-        ],
+          //   ),
+          // ),
+        ),
       ),
-      //   ),
-      // ),
-    ),
-    ),
     );
   }
 }

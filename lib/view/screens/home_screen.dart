@@ -33,19 +33,19 @@ class HomeScreen extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               "Welcome, ${CustomerModel.logedInCustomer.firstName}",
-              style: th.TextTheme.subHeading.copyWith(color: primaryColor),
+              style: th.TextTheme.subHeading.copyWith(color: primaryColor,fontSize: 18),
             ),
           ),
 
           //balance
           const SizedBox(
-            height: 10,
+            height: 15,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               "Balance ${AccountModel.currentAccount.balance} /RS",
-              style: th.TextTheme.subHeading.copyWith(color: secondaryColor),
+              style: th.TextTheme.subHeading.copyWith(color: secondaryColor,fontSize: 18),
             ),
           ),
 

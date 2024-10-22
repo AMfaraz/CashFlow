@@ -30,14 +30,12 @@ class SettingScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-
               //change email screen
               Container(
                 margin: EdgeInsets.all(15),
                 height: 190,
                 child: PaymentType(
-                  imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                  imgSrc: 'assets/icons/loginId.png',
                   imgText: "Change Login Id",
                   func: () {
                     Navigator.of(context).push(
@@ -56,8 +54,7 @@ class SettingScreen extends StatelessWidget {
                 margin: EdgeInsets.all(15),
                 height: 190,
                 child: PaymentType(
-                  imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                  imgSrc: 'assets/icons/password.png',
                   imgText: "Change Password",
                   func: () {
                     Navigator.of(context).push(

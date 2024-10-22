@@ -32,9 +32,13 @@ class MyAccountScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               //image
+              // Container(
+              //   child: const Text("Image"),
+              //   height: height * 0.4,
+              // ),
+
               Container(
-                child: const Text("Image"),
-                height: height * 0.4,
+                child: Image.asset('assets/icons/logo.png'),
               ),
 
               //details

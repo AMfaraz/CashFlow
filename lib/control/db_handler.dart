@@ -12,7 +12,7 @@ class DbHandler {
     }
 
     Directory directory = await getApplicationDocumentsDirectory();
-    String path = join(directory.path, 'CashFlowdb26.db');
+    String path = join(directory.path, 'CashFlowdb.db');
 
     _database = await openDatabase(
       path,

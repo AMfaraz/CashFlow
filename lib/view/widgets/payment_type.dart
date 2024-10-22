@@ -31,7 +31,7 @@ class PaymentType extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Image.network(
+            Image.asset(
               fit: BoxFit.scaleDown,
               imgSrc,
             ),

@@ -79,11 +79,16 @@ class _MainScreenState extends State<MainScreen> {
             });
           },
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            // BottomNavigationBarItem(icon: Icon(Icons.home_max_outlined), label: "Home"),
+            BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/icons/home-outlined.png')), label: "Home"),
+            // BottomNavigationBarItem(
+            //     icon: Icon(Icons.payment), label: "Payment"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.payment), label: "Payment"),
+                icon: ImageIcon(AssetImage('assets/icons/payment.png')), label: "Payment"),
+            // BottomNavigationBarItem(
+            //     icon: Icon(Icons.send_outlined), label: "Send Money"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.send_outlined), label: "Send Money"),
+                icon: ImageIcon(AssetImage('assets/icons/sendmoney.png')), label: "Send Money"),
           ],
         ),
 

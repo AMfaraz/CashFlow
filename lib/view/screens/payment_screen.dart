@@ -15,19 +15,6 @@ class PaymentScreen extends StatelessWidget {
     double height = ScreenUtils.height(context);
     double width = ScreenUtils.width(context);
 
-    // return SafeArea(
-    //   child: Scaffold(
-    //     appBar: AppBar(
-    //       backgroundColor: secondaryColor,
-    //       title: Text("Home"),
-    //       actions: [
-    //         Container(
-    //             margin: const EdgeInsets.only(top: 10, right: 10),
-    //             child: const Icon(Icons.mobile_friendly))
-    //       ],
-    //     ),
-    //     body:
-
     return Container(
       color: primaryColor,
       width: double.infinity,
@@ -35,7 +22,11 @@ class PaymentScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Text("Image"),
+          // Text("Image"),
+
+          //  Container(
+          //     child: Image.asset('assets/icons/logo.png'),
+          //   ),
 
           //bill payment mobile recharge
           Row(
@@ -43,7 +34,7 @@ class PaymentScreen extends StatelessWidget {
             children: <Widget>[
               PaymentType(
                   imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                      'assets/icons/bill.png',
                   imgText: "Bill \nPayment",
                   func: () {
                     Navigator.of(context)
@@ -53,7 +44,7 @@ class PaymentScreen extends StatelessWidget {
                   }),
               PaymentType(
                 imgSrc:
-                    'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                    'assets/icons/smartphone.png',
                 imgText: "Mobile \nRecharge",
                 func: () {
                   Navigator.of(context)
@@ -71,11 +62,11 @@ class PaymentScreen extends StatelessWidget {
             children: <Widget>[
               PaymentType(
                   imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                      'assets/icons/credit-card.png',
                   imgText: "Credit \nCard"),
               PaymentType(
                   imgSrc:
-                      'https://www.shutterstock.com/shutterstock/photos/741444880/display_1500/stock-vector-invoice-line-icon-payment-and-bill-invoice-order-symbol-concept-tax-sign-design-paper-bank-741444880.jpg',
+                      'assets/icons/smartphone.png',
                   imgText: "Loan \nRepayment"),
             ],
           ),

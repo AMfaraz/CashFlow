@@ -11,8 +11,13 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
-            child: Text("Hello"),
+          DrawerHeader(
+            // child: Text("Hello"),
+            // child: Image.asset('assets/icons/logo.png'),
+            child: ImageIcon(AssetImage('assets/icons/logo.png')),
+            // child:Container(
+            //     child: Image.asset('assets/icons/logo.png'),
+            //   ),
             // decoration: BoxDecoration(
             //     color: Colors.green,
             //     image: DecorationImage(
@@ -46,11 +51,7 @@ class NavDrawer extends StatelessWidget {
                 return SettingScreen();
               }))},
           ),
-          ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
+
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
